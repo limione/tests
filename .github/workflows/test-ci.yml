@@ -1,4 +1,4 @@
-name: Playwright Tests
+name: My Tests
 on:
   push:
     branches: [ main, master ]
@@ -15,13 +15,6 @@ jobs:
         node-version: '14.x'
     - name: Install dependencies
       run: npm ci
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
-    - name: Run Playwright tests
-      run: npx playwright test
-    - uses: actions/upload-artifact@v2
-      if: always()
-      with:
-        name: playwright-report
-        path: playwright-report/
-        retention-days: 30
+    - name: Run tests
+      run: npm test      
+    
